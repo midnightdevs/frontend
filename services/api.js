@@ -6,11 +6,12 @@ export default class BackendService {
         this.instance = axios.create({
             baseURL: URL
         });
+        this.URL = URL
     }
 
-    getPerfil() {
-        this.instance.get('/perfil/').then((req, res) => {
-            console.log(req)
+    getPerfil(email) {
+        return this.instance.get(`/perfil/?email=${email}`).then((req, res) => {
+            return {...req.data, 'avatar_path': this.URL + req.data.avatar_path}
         })
     }
 
