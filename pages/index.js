@@ -24,7 +24,7 @@ export default function Home() {
       let data_entrada = dayjs(e.data_inicio.split("T")[0]).format('DD/MM/YYYY')
       let data_saida = dayjs(e.data_saida.split("T")[0]).format('DD/MM/YYYY')
       return (
-        <div className='p-5'>
+        <div className='p-5 my-5 bg-indigo-100 rounded-[12px]'>
           <ul className="list-none text-neutral-700">
             <li className="text-3xl text-left font-bold">{e.empresa}
               <spam className="text-lg ml-10 font-normal italic">
