@@ -15,5 +15,11 @@ export default class BackendService {
         })
     }
 
+    getCurriculo(empresa) {
+        return this.instance.get(`/curriculo/`).then((req, res) => {
+            return req.data['curriculo']
+        })
+    }
+
 }
 
