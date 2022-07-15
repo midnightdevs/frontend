@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     const backendService = new BackendService()
-    backendService.getPerfil('johndoe@gmail.com').then((res) => {
+    backendService.getPerfil().then((res) => {
       setPerfil(res)
     })
     backendService.getCurriculo().then((res) => {
@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-2 p-20">
+      <div className="grid grid-cols-4 p-20">
         <div className="pr-10">
           <div className="container mx-auto">
             <img src={perfil.avatar_path} />
@@ -73,7 +73,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="col-span-3 bg-indigo-200 p-10 rounded-[12px] drop-shadow-md">
+        <div className="col-span-3 bg-indigo-300 p-10 rounded-[12px] drop-shadow-md">
           <p className='text-3xl text-neutral-700 font-bold'>Expericências profissionais</p>
           {getCurriculo(curriculo)}
         </div>

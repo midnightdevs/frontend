@@ -3,20 +3,21 @@ import axios from "axios";
 
 export default class BackendService {
     constructor(URL='http://localhost:8000'){
-        this.instance = axios.create({
+        this.client_http = axios.create({
             baseURL: URL
         });
         this.URL = URL
+        this.email = "renatacristina54906@gmail.com"
     }
 
     getPerfil(email) {
-        return this.instance.get(`/perfil/?email=${email}`).then((req, res) => {
+        return this.client_http.get(`/perfil/?email=${this.email}`).then((req, res) => {
             return {...req.data, 'avatar_path': this.URL + req.data.avatar_path}
         })
     }
 
     getCurriculo(empresa) {
-        return this.instance.get(`/curriculo/`).then((req, res) => {
+        return this.client_http.get(`/curriculo/`).then((req, res) => {
             return req.data['curriculo']
         })
     }
