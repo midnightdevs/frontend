@@ -16,6 +16,9 @@ export default function Home() {
 
   return (
     <>
+    <div style={{marginLeft: 300, color: 'red'}}>
+        <h2>Olá {perfil.nome}</h2>
+      </div>
       <h1>Hello {perfil.nome} {perfil.sobrenome}</h1>
       <img src={perfil.avatar_path} />
     </>
