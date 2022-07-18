@@ -7,7 +7,7 @@ export default class BackendService {
             baseURL: URL
         });
         this.URL = URL
-        this.email = "renatacristina54906@gmail.com"
+        this.email = "johndoe@gmail.com"
     }
 
     getPerfil(email) {
