@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export default class BackendService {
-    constructor(URL='http://localhost:8000'){
+    constructor(URL = 'http://localhost:8000') {
         this.client_http = axios.create({
             baseURL: URL
         });
@@ -12,12 +12,27 @@ export default class BackendService {
 
     getPerfil(email) {
         return this.client_http.get(`/perfil/?email=${this.email}`).then((req, res) => {
-            return {...req.data, 'avatar_path': this.URL + req.data.avatar_path}
+            const avatar_path = req.data.avatar_path ? this.URL + req.data.avatar_path : ''
+            return { ...req.data, avatar_path }
         })
     }
 
     getCurriculo(empresa) {
         return this.client_http.get(`/curriculo/`).then((req, res) => {
+            return req.data['curriculo']
+        })
+    }
+
+    async updatePerfil(perfil) {
+        return await this.client_http.put(`/perfil/?email=${perfil.email}`, perfil).then((req, res) => {
+            alert('usuario salvo')
+            return req.data['perfil']
+        })
+    }
+
+    async adicionarEmpresa(curriculo) {
+        return await this.client_http.post(`/curriculo/`, curriculo).then((req, res) => {
+            alert('usuario salvo')
             return req.data['curriculo']
         })
     }
