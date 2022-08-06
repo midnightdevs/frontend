@@ -90,15 +90,15 @@ export default function PerfilForm(props) {
                                 GitHub
                             </label>
                             <div className="mt-1 flex rounded-md shadow-sm">
-                                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                {/* <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
                                     https://
-                                </span>
+                                </span> */}
                                 <input
                                     type="text"
                                     name="github"
                                     id="github"
-                                    className="p-1.5 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                                    value={perfil.github && `${perfil.github.substring(8)}`}
+                                    className="rounded-l-md p-1.5 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                    value={perfil.github}
                                     onChange={(e) => setPerfil({...perfil, github: e.target.value})}
                                 />
                             </div>
