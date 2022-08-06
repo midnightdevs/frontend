@@ -23,8 +23,8 @@ export default class BackendService {
         })
     }
 
-    async updatePerfil(perfil) {
-        return await this.client_http.put(`/perfil/?email=${perfil.email}`, perfil).then((req, res) => {
+    async updatePerfil(perfil, emailAntigo) {
+        return await this.client_http.put(`/perfil/?email=${emailAntigo}`, perfil).then((req, res) => {
             alert('usuario salvo')
             return req.data['perfil']
         })

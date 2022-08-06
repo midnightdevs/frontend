@@ -7,7 +7,8 @@ import BackendService from "../../services/api"
 export default function PerfilForm(props) {
     const backendService = new BackendService()
     const [perfil, setPerfil] = useState({})
-    useEffect(() => { setPerfil(props.perfil) }, [props])
+    const [emailAntigo, setEmailAntigo] = useState('')
+    useEffect(() => { setPerfil(props.perfil); setEmailAntigo(perfil.email) }, [props])
 
     return (
         <>
@@ -43,7 +44,7 @@ export default function PerfilForm(props) {
                             onChange={(e) => setPerfil({...perfil, sobrenome: e.target.value})}
                         />
                     </div>
-                    <div className="col-span-6 sm:col-span-3">
+                    {/* <div className="col-span-6 sm:col-span-3">
                         <label htmlFor="email" className="block text-sm font-semibold text-gray-700">
                             Email
                         </label>
@@ -56,7 +57,7 @@ export default function PerfilForm(props) {
                             value={perfil.email}
                             onChange={(e) => setPerfil({...perfil, email: e.target.value})}
                         />
-                    </div>
+                    </div> */}
                     <div className="col-span-6 sm:col-span-3">
                         <label htmlFor="celular" className="block text-sm font-semibold text-gray-700">
                             Celular
@@ -121,7 +122,7 @@ export default function PerfilForm(props) {
                             <button
                                 type="button"
                                 className="float-right py-1 px-2 bg-green-600 text-white font-semibold rounded-md shadow-sm"
-                                onClick={() => backendService.updatePerfil(perfil)}
+                                onClick={() => backendService.updatePerfil(perfil, emailAntigo)}
                             >
                                 Salvar
                             </button>
